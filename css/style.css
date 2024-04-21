@@ -1,0 +1,52 @@
+
+
+
+.headerImages{   
+position: relative;
+}
+
+.img-header{
+    display: block;
+    object-fit: contain;
+    margin-left: auto;  
+    margin-right: auto;
+    max-width: 1440px;
+    max-height: 960px;
+    width: 100%;
+    flex-shrink: 0;
+ }
+
+ .img-logo{
+    position: absolute;  
+    top: 35px;  
+    left: 35px;  
+ }
+
+ .headerText{  
+    
+    transform: translate(-50%, -50%);
+    position: absolute;  
+    top: 50%;  
+    left: 50%; 
+    max-width: 890px;
+    width: 100%;
+    color: var(--Yellow, #FFD15B);
+    font-family: Anton;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+ }
+
+ .input-group{
+    position: absolute !important;  
+    top: 60%;  
+    left: 15%; 
+    color:  #FFD15B;
+
+
+ }
+
+ #search-focus{
+    width: 500px;
+ }
