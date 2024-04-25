@@ -60,13 +60,32 @@ margin-right: auto;
    padding: 20px;
    margin: 10px;
    border-radius: 8px;
-   align-items: center;
    max-width: 500px;
 
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+   display: flex !important;
+   
+   justify-content:center !important;
+   align-items:center !important;
+   text-align:center !important;
 }
 
 .imgRecette{
 
    max-width: 200px;
+}
+
+.cardSubDiv{
+   display:flex;
+   justify-content:center;
+   align-items:center;
+   text-align:center;
+}
+
+.ingredientName{
+   display: flex;
+   justify-content:center;
+   align-items:center;
+   text-align:center;
 }
