@@ -1,5 +1,8 @@
 
-
+.container{
+   max-width: 1440px !important;
+   padding: 0px !important;
+}
 
 .headerImages{   
 position: relative;
@@ -50,25 +53,33 @@ position: relative;
  #search-focus{
     width: 500px;
  }
-.card-container{
+
+ #cardContainer{
 margin-left: auto;
 margin-right: auto;
+background-color: #FFD15B;
+max-width: 1440px;
+flex-wrap: wrap;
+display: flex;
+
+
+
+
 }
 
- .card {
+ .cardCSS {
    border: 1px solid #ddd;
+   background-color: aquamarine;
    padding: 20px;
    margin: 10px;
    border-radius: 8px;
-   max-width: 500px;
+   max-width: 380px;
+   margin-left: auto;
+   margin-right: auto;
 
    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
-   display: flex !important;
-   
-   justify-content:center !important;
-   align-items:center !important;
-   text-align:center !important;
+ 
 }
 
 .imgRecette{
@@ -77,15 +88,14 @@ margin-right: auto;
 }
 
 .cardSubDiv{
+   gap: 10px;
    display:flex;
-   justify-content:center;
-   align-items:center;
-   text-align:center;
+   flex-wrap: wrap;
+   justify-content:start;
+   align-items:start;
 }
 
 .ingredientName{
-   display: flex;
-   justify-content:center;
+   width: 47%;
    align-items:center;
-   text-align:center;
 }

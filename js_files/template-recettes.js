@@ -4,12 +4,13 @@ const {id, image, name, servings, ingredients, time, description, appliance, ust
 const pictureRecette = "/photos-plats/" + image;
 
 
-const cardContainer = document.getElementById('card-container');
+const cardContainer = document.getElementById('cardContainer');
 
 function createCard() {
 
     const card = document.createElement('div');
-    card.classList.add('card');
+    card.classList.add('cardCSS');
+    card.setAttribute('id', "cardCSS");
 
 
     const imgRecette= document.createElement( 'img' );
@@ -32,6 +33,7 @@ function createCard() {
 
     const cardSubDiv = document.createElement('div');
     cardSubDiv.classList.add('cardSubDiv');
+    cardSubDiv.setAttribute('id', "cardSubDiv");
 
     ingredients.forEach((ingredientSolo)=>{
 
