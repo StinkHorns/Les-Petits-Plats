@@ -26,6 +26,12 @@ position: relative;
     left: 35px;  
  }
 
+ .img-circle{
+   position: absolute;  
+   top: 35px;  
+   left: 220px;  
+   transform: scale(0.7);}
+
  .headerText{  
     
     transform: translate(-50%, -50%);
