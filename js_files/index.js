@@ -12,7 +12,7 @@ async function getRecettesData (){
  
 async function init(){
     let dataFromRecettes = await getRecettesData();
-    console.log(dataFromRecettes.length + " hola");
+    //console.log(dataFromRecettes.length + " hola");
     const cardContainer = document.getElementById('cardContainer');
 
     dataFromRecettes.forEach((recetteSolo)=>{
@@ -27,5 +27,4 @@ async function init(){
 }
 
 init();
-
 
