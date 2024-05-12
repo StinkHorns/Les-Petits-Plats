@@ -50,7 +50,7 @@ function filtreFunction3() {
 function dataForCard(data) {
 const {id, image, name, servings, ingredients, time, description, appliance, ustensils} = data;
 
-const pictureRecette = "/photos-plats/" + image;
+const pictureRecette = "photos-plats/" + image;
 
 
 const cardContainer = document.getElementById('cardContainer');
