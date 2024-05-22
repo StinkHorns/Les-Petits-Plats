@@ -1,5 +1,7 @@
 
 
+// Recette Count
+
 
 
 
@@ -50,13 +52,15 @@ function filtreFunction3() {
 function dataForCard(data) {
 const {id, image, name, servings, ingredients, time, description, appliance, ustensils} = data;
 
+
+
 const pictureRecette = "photos-plats/" + image;
 
 
 const cardContainer = document.getElementById('cardContainer');
 
 
-
+//console.log(ingredients+ "cheking ing data");
 
 
 function createCard() {
@@ -110,10 +114,19 @@ function createCard() {
 
         cardSubDiv.appendChild(ingredientName);
 
-       
-        
+   
         }
         );
+
+     
+
+
+  
+
+  
+
+
+    
 
 
    /** 
@@ -144,11 +157,61 @@ function createCard() {
     return card;
 }
 
+
+
+
+
 return {id, pictureRecette, name, servings, ingredients, time, description, appliance, ustensils, createCard};
 
 
-}
-// const card = createCard();
 
-// cardContainer.appendChild(card);
+
+
+}
+
+
+/** myDropdown1 Ingredient    */
+
+function dataForFiltres (data) {
+const {id, image, name, servings, ingredients, time, description, appliance, ustensils} = data;
+
+
+ingredients.forEach((ingredientSolo)=>{
+
+  //console.log(ingredientSolo.ingredient + "  Single ing data");
+         
+  const myDropdown1Data=document.createElement('a');
+  myDropdown1Data.classList.add("myDropdown1Data");
+  myDropdown1Data.href="#";
+  myDropdown1Data.innerHTML=(ingredientSolo.ingredient);
+  myDropdown1.appendChild(myDropdown1Data);
+  }
+  );
+
+
+  console.log(appliance + "  applianceSolo ");
+
+  const myDropdown2Data=document.createElement('a');
+  myDropdown2Data.classList.add("myDropdown2Data");
+  myDropdown2Data.href="#";
+  myDropdown2Data.innerHTML=(appliance);
+  myDropdown2.appendChild(myDropdown2Data);
+ 
+
+ustensils.forEach((ustensilsSolo)=>{
+
+    console.log(ustensilsSolo + "  ustensilsSolo ");
+  
+    const myDropdown3Data=document.createElement('a');
+    myDropdown3Data.classList.add("myDropdown3Data");
+    myDropdown3Data.href="#";
+    myDropdown3Data.innerHTML=(ustensilsSolo);
+    myDropdown3.appendChild(myDropdown3Data);
+    }
+    );
+
+
+
+};
+
 
