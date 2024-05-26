@@ -30,7 +30,6 @@ async function init(){
 
         }
         )
-        
 // Recettes Total Counter
     const recetteTotales = document.createElement('div');
     recetteTotales.classList.add('countRecettes');

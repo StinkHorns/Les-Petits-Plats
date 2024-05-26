@@ -158,7 +158,24 @@ position: relative;
  .show {display: block;}
 
 
+.dropdownSearch{
+   background: url(/main_media/search_bkgd.svg);
+   width: 163px;
+   height: 36px;
+   flex-shrink: 0;
+   border: #C6C6C6;
+   margin-left: 16px;
+   margin-top: 16px;
+   }
 
+   .dropbtn:hover{
+      background-color: #FFD15B;
+   }
+
+
+   .dropdownSearchResult:hover{
+      background-color: #FFD15B;
+   }
 
 
 /*  ***************************************************************/
