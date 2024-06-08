@@ -21,13 +21,69 @@ function filtreFunction3() {
   
   // Close the dropdown if the user clicks outside of it
   
-  window.onclick = function(event) {
-    if (!event.target.matches('.dropbtn1')) {
+   window.onclick = function(event) {
+    console.log(event.target);
+    if (event.target.matches('.dropbtn1') || event.target.matches('.dropdownSearch1') ) {
+      console.log("fffff");
+      let openDropdown2 = document.getElementById("myDropdown2");
+          if (openDropdown2.classList.contains('show')) {
+          openDropdown2.classList.remove('show');
+        }         
+      let openDropdown3 = document.getElementById("myDropdown3");
+        if (openDropdown3.classList.contains('show')) {
+        openDropdown3.classList.remove('show');
+      } 
+    }
+
+    else if (event.target.matches('.dropbtn2') || event.target.matches('.dropdownSearch2') ) {
+      console.log("ffff22f");
+      let openDropdown1 = document.getElementById("myDropdown1");
+          if (openDropdown1.classList.contains('show')) {
+          openDropdown1.classList.remove('show');
+        }         
+      let openDropdown3 = document.getElementById("myDropdown3");
+        if (openDropdown3.classList.contains('show')) {
+        openDropdown3.classList.remove('show');
+      } 
+    }
+
+    else if (event.target.matches('.dropbtn3') || event.target.matches('.dropdownSearch3') ) {
+      let openDropdown2 = document.getElementById("myDropdown2");
+          if (openDropdown2.classList.contains('show')) {
+          openDropdown2.classList.remove('show');
+        }         
+      let openDropdown1 = document.getElementById("myDropdown1");
+        if (openDropdown1.classList.contains('show')) {
+        openDropdown1.classList.remove('show');
+      } 
+    }
+
+    else{
+      let openDropdown1 = document.getElementById("myDropdown1");
+          if (openDropdown1.classList.contains('show')) {
+          openDropdown1.classList.remove('show');
+        }         
+      let openDropdown3 = document.getElementById("myDropdown3");
+        if (openDropdown3.classList.contains('show')) {
+        openDropdown3.classList.remove('show');
+      } 
+      let openDropdown2 = document.getElementById("myDropdown2");
+      if (openDropdown2.classList.contains('show')) {
+      openDropdown2.classList.remove('show');
+    }         
+ 
+  } 
+
+
+     }
+
+   /**  if (!event.target.matches('.dropbtn1')) {
       let openDropdown = document.getElementById("myDropdown1");
           if (openDropdown.classList.contains('show')) {
           openDropdown.classList.remove('show');
         }      
     }
+
     if (!event.target.matches('.dropbtn2')) {
         let openDropdown = document.getElementById("myDropdown2");
             if (openDropdown.classList.contains('show')) {
@@ -40,7 +96,9 @@ function filtreFunction3() {
         openDropdown.classList.remove('show');
         }      
     }
-    }
+    */
+    
+    
   
   
   
@@ -172,35 +230,42 @@ return {id, pictureRecette, name, servings, ingredients, time, description, appl
 
 /** myDropdown1 Ingredient    */
 
-function dataForFiltres (data) {
-const {id, image, name, servings, ingredients, time, description, appliance, ustensils} = data;
+function displayDropFiltres(uniqueIngredientsList, uniqueAppareilsList, uniqueUstensilesList){
+
+//console.log(ingredients + "ingDUPS");
 
 
-ingredients.forEach((ingredientSolo)=>{
+
+
+uniqueIngredientsList.forEach((ingredientSolo)=>{
 
   //console.log(ingredientSolo.ingredient + "  Single ing data");
-         
+
+
   const myDropdown1Data=document.createElement('a');
   myDropdown1Data.classList.add("myDropdown1Data");
   myDropdown1Data.href="#";
-  myDropdown1Data.innerHTML=(ingredientSolo.ingredient);
+  //
+  myDropdown1Data.innerHTML=(ingredientSolo);
   myDropdown1.appendChild(myDropdown1Data);
   }
   );
+  
 
-
-  console.log(appliance + "  applianceSolo ");
+  //console.log(appliance + "  applianceSolo ");
+  uniqueAppareilsList.forEach((appliance)=>{
 
   const myDropdown2Data=document.createElement('a');
   myDropdown2Data.classList.add("myDropdown2Data");
   myDropdown2Data.href="#";
   myDropdown2Data.innerHTML=(appliance);
-  myDropdown2.appendChild(myDropdown2Data);
- 
+  myDropdown2.appendChild(myDropdown2Data); 
+  });
 
-ustensils.forEach((ustensilsSolo)=>{
+  uniqueUstensilesList.forEach((ustensilsSolo)=>{
 
-    console.log(ustensilsSolo + "  ustensilsSolo ");
+
+    //console.log(ustensilsSolo + "   ");
   
     const myDropdown3Data=document.createElement('a');
     myDropdown3Data.classList.add("myDropdown3Data");
@@ -210,7 +275,7 @@ ustensils.forEach((ustensilsSolo)=>{
     }
     );
 
-
+    
 
 };
 
