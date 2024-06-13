@@ -269,7 +269,7 @@ uniqueIngredientsList.forEach((ingredientSolo)=>{
     //console.log(ustensilsSolo + "   ");
     const myDropdown3Data=document.createElement('a');
     myDropdown3Data.classList.add("myDropdown3Data");
-    myDropdown3Data.addEventListener("click", filtreUstensiles);
+    
 
     myDropdown3Data.innerHTML=(ustensilsSolo);
     ustensilesContent.appendChild(myDropdown3Data);

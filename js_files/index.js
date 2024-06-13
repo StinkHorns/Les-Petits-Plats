@@ -8,6 +8,7 @@ const inputIngredient= document.getElementById('dPSearch1');
 const inputAppareils= document.getElementById('dPSearch2');
 const inputUstensiles= document.getElementById('dPSearch3');
 
+let ustensilesTags=[]
 
 let dataFromRecettes = [];
 
@@ -46,6 +47,20 @@ async function init(){
     recetteTotales.classList.add('countRecettes');
     recetteTotales.textContent = dataFromRecettes.length + " recettes";
     recettesTotal.appendChild(recetteTotales);
+
+// Add event listener dropdown
+
+const ustensilesDropDown=document.querySelectorAll(".myDropdown3Data");
+
+ustensilesDropDown.forEach(dropDown => {
+
+    dropDown.addEventListener("click",()=>{
+     //console.log(dropDown.innerHTML);
+     ustensilesTags.push(dropDown.innerHTML)
+      search(dropDown.innerHTML, dataFromRecettes);
+      });
+}
+);
 
 }
 
@@ -166,7 +181,7 @@ function filtreAppareils (searchInput){
     }
     
 
-    displayDropFiltres(result, uniqueIngredientsList, uniqueUstensilesList)
+    displayDropFiltres(uniqueIngredientsList, result, uniqueUstensilesList)
 }
 
 ////////////////////////////////////
@@ -187,7 +202,7 @@ function filtreUstensiles (searchInput){
     }
     
 
-    displayDropFiltres(result, uniqueIngredientsList, uniqueAppareilsList)
+    displayDropFiltres(uniqueIngredientsList, uniqueAppareilsList, result)
 }
 
 
@@ -217,11 +232,44 @@ function search(searchInput, datas){
             if (index==-1){
                 dataResult.push(datas[i])  
             }            }
-           }      
+           }     
+                  
            recetteTotales.innerHTML=dataResult.length+ " Recettes";
-
-           
+              
         }
+
+        if (ustensilesTags.length>0){
+            for (let i=0; i<=dataResult.length;i++){
+
+            
+            for(let u =0; u<= ustensilesTags.length-1; u++){
+                for(let y =0; y<= dataResult[i].ustensils.length-1; y++){
+                    if(dataResult[i].ustensils[y].includes(ustensilesTags[u])){
+                        let index=dataResult.indexOf(datas[i]);
+                        if (index==-1){
+                            dataResult.push(datas[i]) 
+
+                        }   
+                        
+                        else{
+                            dataResult.splice(index,1)
+                        }
+                    }
+                             
+                             
+                }
+ 
+            }
+
+           }
+        }
+            uniqueIngredientsList=[]
+            uniqueAppareilsList=[]
+            uniqueUstensilesList=[]
+
+addElementsFiltreList(dataResult, uniqueIngredientsList, uniqueAppareilsList, uniqueUstensilesList);
+displayDropFiltres(uniqueIngredientsList, uniqueAppareilsList, uniqueUstensilesList)
+
 
 
 // Remove duplicates CARDS Function
@@ -271,9 +319,6 @@ console.log("ingDUPS");
 }
 
 
-
-
-// Only one dropDown menu open 
 
 
 
