@@ -234,44 +234,45 @@ function displayDropFiltres(uniqueIngredientsList, uniqueAppareilsList, uniqueUs
 
 //console.log(ingredients + "ingDUPS");
 
-
-
+const ingredientContent=document.getElementById("ingredientContent");
+ingredientContent.innerHTML="";
 
 uniqueIngredientsList.forEach((ingredientSolo)=>{
-
   //console.log(ingredientSolo.ingredient + "  Single ing data");
-
-
   const myDropdown1Data=document.createElement('a');
   myDropdown1Data.classList.add("myDropdown1Data");
   myDropdown1Data.href="#";
   //
   myDropdown1Data.innerHTML=(ingredientSolo);
-  myDropdown1.appendChild(myDropdown1Data);
+  ingredientContent.appendChild(myDropdown1Data);
   }
   );
   
+  const appareilsContent=document.getElementById("appareilsContent");
+  appareilsContent.innerHTML="";
 
   //console.log(appliance + "  applianceSolo ");
   uniqueAppareilsList.forEach((appliance)=>{
+    const myDropdown2Data=document.createElement('a');
+    myDropdown2Data.classList.add("myDropdown2Data");
+    myDropdown2Data.href="#";
+    
+    myDropdown2Data.innerHTML=(appliance);
+    appareilsContent.appendChild(myDropdown2Data); 
+    }
+    );
 
-  const myDropdown2Data=document.createElement('a');
-  myDropdown2Data.classList.add("myDropdown2Data");
-  myDropdown2Data.href="#";
-  myDropdown2Data.innerHTML=(appliance);
-  myDropdown2.appendChild(myDropdown2Data); 
-  });
+  const ustensilesContent=document.getElementById("ustensilesContent");
+  ustensilesContent.innerHTML="";
 
   uniqueUstensilesList.forEach((ustensilsSolo)=>{
-
-
     //console.log(ustensilsSolo + "   ");
-  
     const myDropdown3Data=document.createElement('a');
     myDropdown3Data.classList.add("myDropdown3Data");
-    myDropdown3Data.href="#";
+    myDropdown3Data.addEventListener("click", filtreUstensiles);
+
     myDropdown3Data.innerHTML=(ustensilsSolo);
-    myDropdown3.appendChild(myDropdown3Data);
+    ustensilesContent.appendChild(myDropdown3Data);
     }
     );
 

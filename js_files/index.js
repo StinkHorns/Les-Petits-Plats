@@ -60,19 +60,15 @@ function addElementsFiltreList (datas, uniqueIngredientsList, uniqueAppareilsLis
             if (index==-1){
                 uniqueIngredientsList.push(ingredientUnique.ingredient.toLowerCase());
                 //console.log(ingredientUnique.ingredient.toLowerCase())
-            }
-
-            
+            }            
        })
 
-       //appareils
-       
+       //appareils       
         let index=uniqueAppareilsList.indexOf(recetteSolo.appliance.toLowerCase());
             if (index==-1){
                 uniqueAppareilsList.push(recetteSolo.appliance.toLowerCase());
                 //console.log(recetteSolo.appliance.toLowerCase())
-            }
-            
+            }            
        
         //ustensiles
        recetteSolo.ustensils.forEach((ustensileUnique)=>{
@@ -122,16 +118,78 @@ inputValue.addEventListener('input', ()=>{
 
 
 inputIngredient.addEventListener('input', ()=>{
-    search(inputIngredient.value, dataFromRecettes)
+filtreIngredient(inputIngredient.value);
 })
 
 inputAppareils.addEventListener('input', ()=>{
-    search(inputAppareils.value, dataFromRecettes)
+filtreAppareils(inputAppareils.value)
 })
 
 inputUstensiles.addEventListener('input', ()=>{
-    search(inputUstensiles.value, dataFromRecettes)
+filtreUstensiles(inputUstensiles.value)
 })
+
+function filtreIngredient (searchInput){
+    let result = []
+    for (let index = 0; index < uniqueIngredientsList.length; index++) {
+    const element = uniqueIngredientsList[index];
+
+    //console.log(element);
+    
+    if (element.toLowerCase().includes(searchInput.toLowerCase())){
+            
+        let index=result.indexOf(element);
+        if (index==-1){
+            result.push(element)  
+        }  
+    }
+    }
+    
+
+    displayDropFiltres(result, uniqueAppareilsList, uniqueUstensilesList)
+}
+////////////////////////////////////
+function filtreAppareils (searchInput){
+    let result = []
+    for (let index = 0; index < uniqueAppareilsList.length; index++) {
+    const element = uniqueAppareilsList[index];
+
+    //console.log(element);
+    
+    if (element.toLowerCase().includes(searchInput.toLowerCase())){
+            
+        let index=result.indexOf(element);
+        if (index==-1){
+            result.push(element)  
+        }  
+    }
+    }
+    
+
+    displayDropFiltres(result, uniqueIngredientsList, uniqueUstensilesList)
+}
+
+////////////////////////////////////
+function filtreUstensiles (searchInput){
+    let result = []
+    for (let index = 0; index < uniqueUstensilesList.length; index++) {
+    const element = uniqueUstensilesList[index];
+
+    //console.log(element);
+    
+    if (element.toLowerCase().includes(searchInput.toLowerCase())){
+            
+        let index=result.indexOf(element);
+        if (index==-1){
+            result.push(element)  
+        }  
+    }
+    }
+    
+
+    displayDropFiltres(result, uniqueIngredientsList, uniqueAppareilsList)
+}
+
 
 
 function search(searchInput, datas){
