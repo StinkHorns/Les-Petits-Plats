@@ -310,3 +310,67 @@ position: relative;
    padding-right: 25px;
 
 }
+
+#visibleSelectedTag{
+   background: #EDEDED;
+   padding-top: 10px;
+   padding-left: 54px;
+   display: flex;
+   padding-right: 20px;
+
+}
+
+.tagCSS{
+display:inline-block ;
+width: 253px;
+height: 53px;
+  
+color: #000;
+
+font-family: Manrope;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+clear: both;
+margin-right: 10px; 
+padding: 17px 18px;
+align-items: center;
+
+border-radius: 10px;
+background-color: #FFD15B;
+gap: 40px;
+
+   
+}
+
+.fa-xmark{
+   position: relative;
+   right: 40px;
+}
+
+@media screen and (max-width: 950px) {
+
+   #visibleSelectedTag{
+      display: block;
+      }
+
+   .tagCSS{
+      margin-top: 10px ;
+      
+      }
+      
+   .filtreNavBar{
+      display: inline-block;
+      background-color: #FFD15B;
+      max-width: 0;
+
+   }
+   .countRecettes{
+      display: flex;
+      min-width: 150px;
+      justify-content: right;
+   }
+
+
+   }

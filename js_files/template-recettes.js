@@ -1,11 +1,66 @@
 
 const visibleSelectedTag=document.getElementById("visibleSelectedTag");
 
-function createTag(tagName){
+function reloadSearch(inputSearch, tagToDelete){
+//xcall search
 
+//remove tag from array
+
+let indexTag=ingredientsTags.indexOf (tagToDelete);
+if (indexTag>=0){
+ingredientsTags.splice(indexTag,1);
+
+}
+
+ indexTag=appareilsTags.indexOf (tagToDelete);
+if (indexTag>=0){
+appareilsTags.splice(indexTag,1);
+
+} 
+
+ indexTag=ustensilesTags.indexOf (tagToDelete);
+if (indexTag>=0){
+ustensilesTags.splice(indexTag,1);
+
+} 
+
+
+search(inputSearch, dataFromRecettes);
+
+
+}
+
+
+function createTag(tagName){
+const divTag=document.createElement("div");
+
+  
   const tag=document.createElement("span");
-  tag.innerText=tagName
-  visibleSelectedTag.appendChild(tag);
+  tag.className="tagCSS";
+  tag.innerText=tagName;
+  const closeTag=document.createElement("i");
+  closeTag.className="fa-solid fa-xmark fa-xlg";
+
+
+
+// remove  Tag
+  closeTag.addEventListener("click",e=>{
+  divTag.style.display = "none";
+//console.log(tagName+" hohlhlhl")
+  let searchField=document.getElementById("search-focus").value;
+reloadSearch(searchField, tagName);
+
+  return false
+})
+
+divTag.appendChild(tag);
+divTag.appendChild(closeTag);
+
+
+  
+  visibleSelectedTag.appendChild(divTag);
+
+  
 
 }
 
@@ -249,6 +304,7 @@ uniqueIngredientsList.forEach((ingredientSolo)=>{
         ingredientsTags.push(ingredientSolo);
         createTag(ingredientSolo);                                                                                                                                                                                                                                                                                    
         } 
+
   search("", dataFromRecettes)
     })
   myDropdown1Data.innerHTML=ingredientSolo;
@@ -266,6 +322,7 @@ uniqueIngredientsList.forEach((ingredientSolo)=>{
     myDropdown2Data.addEventListener("click", ()=>{
       if(!appareilsTags.includes(appliance)){
         appareilsTags.push(appliance);
+        createTag(appliance); 
         } 
 
     search("", dataFromRecettes)
@@ -285,6 +342,7 @@ uniqueIngredientsList.forEach((ingredientSolo)=>{
     myDropdown3Data.addEventListener("click", ()=>{
       if(!ustensilesTags.includes(ustensilsSolo)){
         ustensilesTags.push(ustensilsSolo);
+        createTag(ustensilsSolo); 
         } 
 
       search("", dataFromRecettes)

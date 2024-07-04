@@ -211,7 +211,7 @@ function filtreUstensiles (searchInput){
 
 function search(searchInput, datas){
     // verifier la taile de la chaine 
-
+console.log(searchInput + "    search F  "+ datas.length);
      let dataResult = [];
      searchInput = inputValue.value;
      //console.log("datas = " + datas.length)
