@@ -230,7 +230,15 @@ console.log(searchInput + "    search F  "+ datas.length);
             }
        
         }
-        else{
+        
+        if(recetteSearch.description.toLowerCase().includes(searchInput.toLowerCase())){
+            let index=dataResult.indexOf(recetteSearch);
+            if (index==-1){
+                dataResult.push(recetteSearch)
+            }
+       
+        }
+       
             recetteSearch.ingredients.forEach((ingredientSearch)=>{
                 if(ingredientSearch.ingredient.toLowerCase().includes(searchInput.toLowerCase())){
                     let index=dataResult.indexOf(recetteSearch);
@@ -243,7 +251,7 @@ console.log(searchInput + "    search F  "+ datas.length);
 
             }
 
-     })
+     )
    
      
 
